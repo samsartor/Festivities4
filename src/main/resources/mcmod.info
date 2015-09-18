@@ -1,0 +1,16 @@
+[
+{
+  "modid": "festivities4",
+  "name": "Christmas Festivities Mod 4",
+  "description": "",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["doctorocclusion"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

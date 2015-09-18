@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "axis=y":  { "model": "festivities4:candy_log" },
+        "axis=z":   { "model": "festivities4:candy_log_side" },
+        "axis=x":   { "model": "festivities4:candy_log_side", "y": 90 },
+        "axis=none": { "model": "festivities4:candy_bark" }
+    }
+}
