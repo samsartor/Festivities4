@@ -1,0 +1,133 @@
+{
+    "__comment": "Designed by Eekysam with BDcraft Cubik PRO 0.95 Beta - http://bdcraft.net",
+    "elements": [ 
+        {
+            "__comment": "bottom",
+            "from": [ 2, 0, 3 ],
+            "to": [ 14, 10, 13 ],
+            "faces": {
+                "down":  { "uv": [ 2, 3, 14, 13 ], "texture": "#snow" },
+                "up":    { "uv": [ 2, 3, 14, 13 ], "texture": "#snow" },
+                "north": { "uv": [ 2, 6, 14, 16 ], "texture": "#snow" },
+                "south": { "uv": [ 2, 6, 14, 16 ], "texture": "#snow" },
+                "west":  { "uv": [ 3, 6, 13, 16 ], "texture": "#snow" },
+                "east":  { "uv": [ 3, 6, 13, 16 ], "texture": "#snow" }
+            }
+        },
+        {
+            "__comment": "middle",
+            "from": [ 3, 10, 4 ],
+            "to": [ 13, 17, 12 ],
+            "faces": {
+                "down":  { "uv": [ 3, 4, 13, 12 ], "texture": "#snow" },
+                "up":    { "uv": [ 3, 4, 13, 12 ], "texture": "#snow" },
+                "north": { "uv": [ 3, 0, 13, 7 ], "texture": "#snow" },
+                "south": { "uv": [ 3, 0, 13, 7 ], "texture": "#snow" },
+                "west":  { "uv": [ 4, 0, 12, 7 ], "texture": "#snow" },
+                "east":  { "uv": [ 4, 0, 12, 7 ], "texture": "#snow" }
+            }
+        },
+        {
+            "__comment": "top",
+            "from": [ 4, 17, 4.5 ],
+            "to": [ 12, 24, 11.5 ],
+            "faces": {
+                "down":  { "uv": [ 4, 4.5, 12, 11.5 ], "texture": "#snow" },
+                "up":    { "uv": [ 4, 4.5, 12, 11.5 ], "texture": "#snow" },
+                "north": { "uv": [ 4, 0, 12, 7 ], "texture": "#snow" },
+                "south": { "uv": [ 4, 0, 12, 7 ], "texture": "#snow" },
+                "west":  { "uv": [ 4.5, 0, 11.5, 7 ], "texture": "#snow" },
+                "east":  { "uv": [ 4.5, 0, 11.5, 7 ], "texture": "#snow" }
+            }
+        },
+        {
+            "__comment": "nose",
+            "from": [ 12, 20.5, 7.5 ],
+            "to": [ 15, 21.5, 8.5 ],
+            "faces": {
+                "down":  { "uv": [ 0, 11, 3, 12 ], "texture": "#texture" },
+                "up":    { "uv": [ 0, 11, 3, 12 ], "texture": "#texture" },
+                "north": { "uv": [ 0, 11, 3, 12 ], "texture": "#texture" },
+                "south": { "uv": [ 0, 11, 3, 12 ], "texture": "#texture" },
+                "east":  { "uv": [ 3, 11, 4, 12 ], "texture": "#texture" }
+            }
+        },
+        {
+            "__comment": "pipestem",
+            "from": [ 12, 18, 9 ],
+            "to": [ 14, 19, 10 ],
+            "faces": {
+                "down":  { "uv": [ 0, 13, 2, 14 ], "texture": "#parts" },
+                "up":    { "uv": [ 0, 13, 2, 14 ], "texture": "#parts" },
+                "north": { "uv": [ 0, 13, 2, 14 ], "texture": "#parts" },
+                "south": { "uv": [ 0, 13, 2, 14 ], "texture": "#parts" }
+            }
+        },
+        {
+            "__comment": "pipe",
+            "from": [ 14, 18, 8.5 ],
+            "to": [ 16, 20, 10.5 ],
+            "faces": {
+                "down":  { "uv": [ 2, 12, 4, 14 ], "texture": "#parts" },
+                "up":    { "uv": [ 2, 12, 4, 14 ], "texture": "#parts" },
+                "north": { "uv": [ 2, 12, 4, 14 ], "texture": "#parts" },
+                "south": { "uv": [ 2, 12, 4, 14 ], "texture": "#parts" },
+                "west":  { "uv": [ 2, 12, 4, 14 ], "texture": "#parts" },
+                "east":  { "uv": [ 2, 12, 4, 14 ], "texture": "#parts" }
+            }
+        },
+        {
+            "__comment": "eye1",
+            "from": [ 12, 22.5, 5.5 ],
+            "to": [ 12.5, 23.5, 6.5 ],
+            "faces": {
+                "down":  { "uv": [ 0, 10, 0.5, 11 ], "texture": "#parts" },
+                "up":    { "uv": [ 0, 10, 0.5, 11 ], "texture": "#parts" },
+                "north": { "uv": [ 0, 10, 0.5, 11 ], "texture": "#parts" },
+                "south": { "uv": [ 0, 10, 0.5, 11 ], "texture": "#parts" },
+                "east":  { "uv": [ 0, 10, 1, 11 ], "texture": "#parts" }
+            }
+        },
+        {
+            "__comment": "eye2",
+            "from": [ 12, 22.5, 9.5 ],
+            "to": [ 12.5, 23.5, 10.5 ],
+            "faces": {
+                "down":  { "uv": [ 1, 10, 1.5, 11 ], "texture": "#parts" },
+                "up":    { "uv": [ 1, 10, 1.5, 11 ], "texture": "#parts" },
+                "north": { "uv": [ 1, 10, 1.5, 11 ], "texture": "#parts" },
+                "south": { "uv": [ 1, 10, 1.5, 11 ], "texture": "#parts" },
+                "east":  { "uv": [ 1, 10, 2, 11 ], "texture": "#parts" }
+            }
+        },
+        {
+            "__comment": "hatbase",
+            "from": [ 3.5, 24, 3.5 ],
+            "to": [ 12.5, 25, 12.5 ],
+            "faces": {
+                "down":  { "uv": [ 7, 7, 16, 16 ], "texture": "#parts" },
+                "up":    { "uv": [ 7, 7, 16, 16 ], "texture": "#parts" },
+                "north": { "uv": [ 7, 15, 16, 16 ], "texture": "#parts" },
+                "south": { "uv": [ 7, 15, 16, 16 ], "texture": "#parts" },
+                "west":  { "uv": [ 7, 15, 16, 16 ], "texture": "#parts" },
+                "east":  { "uv": [ 7, 15, 16, 16 ], "texture": "#parts" }
+            }
+        },
+        {
+            "__comment": "hat",
+            "from": [ 4.5, 25, 4.5 ],
+            "to": [ 11.5, 29, 11.5 ],
+            "faces": {
+                "up":    { "uv": [ 9, 0, 16, 7 ], "texture": "#parts" },
+                "north": { "uv": [ 9, 2, 16, 6 ], "texture": "#parts" },
+                "south": { "uv": [ 9, 2, 16, 6 ], "texture": "#parts" },
+                "west":  { "uv": [ 9, 2, 16, 6 ], "texture": "#parts" },
+                "east":  { "uv": [ 9, 2, 16, 6 ], "texture": "#parts" }
+            }
+        }
+    ],
+   "textures": {
+       "parts": "festivities4:blocks/snowman",
+       "parts": "blocks/snow"
+	}
+}

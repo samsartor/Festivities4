@@ -1,5 +1,8 @@
 tile.candyLog.name=Candy Log
 tile.candyLog.tip=Sticky and structural!
+tile.candyPlanks.name=Candy Planks
+tile.candyPlanks.tip=Where did the stripes go?
+tile.candyPlanks.shifttip=Made from peppermint sticks
 
 item.candyCane.name=Candy Cane
 item.candyCane.tip=Twisted and bent!

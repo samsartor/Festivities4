@@ -5,8 +5,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class FestiveItems
 {
-	public static Item candyCane = new ItemFestive();
-	public static Item peppermintStick = new ItemFestive();
+	public static Item candyCane = new ItemFestiveFood(3, 0.3F);
+	public static Item peppermintStick = new ItemFestiveFood(3, 0.3F);
 	
 	public static void registerItems()
 	{

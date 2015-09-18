@@ -2,12 +2,14 @@ package net.doctorocclusion.festivities4;
 
 import net.doctorocclusion.festivities4.block.FestiveBlocks;
 import net.doctorocclusion.festivities4.item.FestiveItems;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod(modid = Festivities.ID, version = Festivities.VERSION)
 public class Festivities
@@ -28,11 +30,24 @@ public class Festivities
 		
 		FestiveItems.registerItems();
 		FestiveBlocks.registerBlocks();
+		this.registerCrafting();
 	}
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event)
 	{
 		proxy.registerRenderers();
+	}
+	
+	private void registerCrafting()
+	{
+		GameRegistry.addShapedRecipe(new ItemStack(FestiveBlocks.candyLog, 1), "##", "##", '#', FestiveItems.candyCane);
+		GameRegistry.addShapelessRecipe(new ItemStack(FestiveItems.candyCane, 4), FestiveBlocks.candyLog);
+		
+		GameRegistry.addShapelessRecipe(new ItemStack(FestiveItems.candyCane, 1), FestiveItems.peppermintStick);
+		GameRegistry.addShapelessRecipe(new ItemStack(FestiveItems.peppermintStick, 1), FestiveItems.candyCane);
+		
+		GameRegistry.addShapedRecipe(new ItemStack(FestiveBlocks.candyPlanks, 1), "##", "##", '#', FestiveItems.peppermintStick);
+		GameRegistry.addShapelessRecipe(new ItemStack(FestiveItems.peppermintStick, 4), FestiveBlocks.candyPlanks);
 	}
 }
