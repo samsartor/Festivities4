@@ -1,0 +1,12 @@
+{
+	"variants": {
+		"facing=east,half=lower":  { "model": "festivities4:snowman_bot", "y": 270 },
+        "facing=south,half=lower": { "model": "festivities4:snowman_bot" },
+        "facing=west,half=lower":  { "model": "festivities4:snowman_bot", "y": 90 },
+        "facing=north,half=lower": { "model": "festivities4:snowman_bot", "y": 180 },
+        "facing=east,half=upper":  { "model": "festivities4:snowman_top" },
+        "facing=south,half=upper": { "model": "festivities4:snowman_top", "y": 90 },
+        "facing=west,half=upper":  { "model": "festivities4:snowman_top", "y": 180 },
+        "facing=north,half=upper": { "model": "festivities4:snowman_top", "y": 270 }
+	}
+}

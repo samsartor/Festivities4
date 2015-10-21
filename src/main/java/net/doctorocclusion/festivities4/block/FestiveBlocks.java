@@ -7,8 +7,9 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class FestiveBlocks
 {
-	public static CandyLog candyLog = new CandyLog();
+	public static BlockCandyLog candyLog = new BlockCandyLog();
 	public static Block candyPlanks = new Block(Material.wood);
+	public static Block snowman = new BlockSnowman();
 	
 	public static void registerBlocks()
 	{
@@ -17,5 +18,8 @@ public class FestiveBlocks
 		
 		candyPlanks.setUnlocalizedName("candyPlanks");
 		GameRegistry.registerBlock(candyPlanks, ItemFestiveBlock.class, "candy_planks");
+		
+		snowman.setUnlocalizedName("snowman");
+		GameRegistry.registerBlock(snowman, null, "snowman");
 	}
 }

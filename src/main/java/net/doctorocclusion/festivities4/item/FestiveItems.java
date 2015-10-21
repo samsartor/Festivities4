@@ -7,6 +7,7 @@ public class FestiveItems
 {
 	public static Item candyCane = new ItemFestiveFood(3, 0.3F);
 	public static Item peppermintStick = new ItemFestiveFood(3, 0.3F);
+	public static Item snowmanParts = new ItemSnowmanParts();
 	
 	public static void registerItems()
 	{
@@ -15,5 +16,8 @@ public class FestiveItems
 		
 		peppermintStick.setUnlocalizedName("peppermintStick");
 		GameRegistry.registerItem(peppermintStick, "peppermint_stick");
+		
+		snowmanParts.setUnlocalizedName("snowmanParts");
+		GameRegistry.registerItem(snowmanParts, "snowman_parts");
 	}
 }

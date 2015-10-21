@@ -27,6 +27,7 @@ public class ClientProxy extends CommonProxy
 		
 		this.setItemModel(FestiveItems.candyCane, 0, Festivities.ID + ":candy_cane");
 		this.setItemModel(FestiveItems.peppermintStick, 0, Festivities.ID + ":peppermint_stick");
+		this.setItemModel(FestiveItems.snowmanParts, 0, Festivities.ID + ":snowman_parts");
 	}
 	
 	public void setItemModel(Item item, int meta, ModelResourceLocation loc)
@@ -56,6 +57,10 @@ public class ClientProxy extends CommonProxy
 		String name = stack.getUnlocalizedName();
 		boolean shift = Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT);
 		boolean hasshift = StatCollector.canTranslate(name + ".shifttip");
+		if (StatCollector.canTranslate(name + ".subname"))
+		{
+			tip.addAll(Arrays.asList(StatCollector.translateToLocal(name + ".subname").split("\\|")));
+		}
 		if ((advanced || !shift || !hasshift) && StatCollector.canTranslate(name + ".tip"))
 		{
 			tip.addAll(Arrays.asList(StatCollector.translateToLocal(name + ".tip").split("\\|")));

@@ -7,9 +7,9 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class CandyLog extends BlockLog
+public class BlockCandyLog extends BlockLog
 {
-	public CandyLog()
+	public BlockCandyLog()
 	{
 		this.setDefaultState(this.blockState.getBaseState().withProperty(LOG_AXIS, BlockLog.EnumAxis.Y));
 	}
