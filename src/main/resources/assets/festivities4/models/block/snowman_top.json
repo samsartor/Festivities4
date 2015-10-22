@@ -52,7 +52,7 @@
         "north": { "uv": [ 2, 12, 4, 14 ], "texture": "#parts" },
         "south": { "uv": [ 2, 12, 4, 14 ], "texture": "#parts" },
         "west":  { "uv": [ 2, 12, 4, 14 ], "texture": "#parts" },
-        "east":  { "uv": [ 2, 12, 4, 14 ], "texture": "#parts" }
+        "east":  { "uv": [ 2, 12, 4, 14 ], "texture": "#parts", "cullface": "east" }
     }
 },
 {

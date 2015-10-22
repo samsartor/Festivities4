@@ -24,6 +24,7 @@ public class ClientProxy extends CommonProxy
 	{
 		this.setItemModel(FestiveBlocks.candyLog, 0, Festivities.ID + ":candy_log");
 		this.setItemModel(FestiveBlocks.candyPlanks, 0, Festivities.ID + ":candy_planks");
+		this.setItemModel(FestiveBlocks.magicSack, 0, Festivities.ID + ":magic_sack");
 		
 		this.setItemModel(FestiveItems.candyCane, 0, Festivities.ID + ":candy_cane");
 		this.setItemModel(FestiveItems.peppermintStick, 0, Festivities.ID + ":peppermint_stick");
