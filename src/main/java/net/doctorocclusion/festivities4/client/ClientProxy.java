@@ -8,20 +8,26 @@ import org.lwjgl.input.Keyboard;
 import net.doctorocclusion.festivities4.CommonProxy;
 import net.doctorocclusion.festivities4.Festivities;
 import net.doctorocclusion.festivities4.block.FestiveBlocks;
+import net.doctorocclusion.festivities4.client.renderer.entity.RenderInternalLights;
+import net.doctorocclusion.festivities4.entity.lights.EntityLightsInternal;
 import net.doctorocclusion.festivities4.item.FestiveItems;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderItem;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy
 {
 	@Override
 	public void registerRenderers()
 	{
+		RenderManager rm = Minecraft.getMinecraft().getRenderManager();
+		
 		this.setItemModel(FestiveBlocks.candyLog, 0, Festivities.ID + ":candy_log");
 		this.setItemModel(FestiveBlocks.candyPlanks, 0, Festivities.ID + ":candy_planks");
 		this.setItemModel(FestiveBlocks.magicSack, 0, Festivities.ID + ":magic_sack");
@@ -29,6 +35,8 @@ public class ClientProxy extends CommonProxy
 		this.setItemModel(FestiveItems.candyCane, 0, Festivities.ID + ":candy_cane");
 		this.setItemModel(FestiveItems.peppermintStick, 0, Festivities.ID + ":peppermint_stick");
 		this.setItemModel(FestiveItems.snowmanParts, 0, Festivities.ID + ":snowman_parts");
+		
+		RenderingRegistry.registerEntityRenderingHandler(EntityLightsInternal.class, new RenderInternalLights(rm));
 	}
 	
 	public void setItemModel(Item item, int meta, ModelResourceLocation loc)

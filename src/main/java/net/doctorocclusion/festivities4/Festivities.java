@@ -1,6 +1,7 @@
 package net.doctorocclusion.festivities4;
 
 import net.doctorocclusion.festivities4.block.FestiveBlocks;
+import net.doctorocclusion.festivities4.entity.FestiveEntities;
 import net.doctorocclusion.festivities4.item.FestiveItems;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
@@ -30,6 +31,7 @@ public class Festivities
 		
 		FestiveItems.registerItems();
 		FestiveBlocks.registerBlocks();
+		FestiveEntities.registerEntities();
 		this.registerCrafting();
 	}
 	

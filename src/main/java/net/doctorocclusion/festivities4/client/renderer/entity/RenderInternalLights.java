@@ -5,6 +5,8 @@ import org.lwjgl.opengl.GL11;
 import net.doctorocclusion.festivities4.entity.lights.EntityLightsInternal;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.WorldRenderer;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
@@ -14,28 +16,63 @@ public class RenderInternalLights extends Render
 {
 	public static final ResourceLocation lights = new ResourceLocation("festivities4:textures/entity/lights_plain.png");
 	
-	protected RenderInternalLights(RenderManager renderManager)
+	public RenderInternalLights(RenderManager renderManager)
 	{
 		super(renderManager);
 	}
 	
 	public void doRender(EntityLightsInternal entity, double x, double y, double z, float rotate, float partialTicks)
 	{
+		this.bindEntityTexture(entity);
 		GlStateManager.pushMatrix();
 		GL11.glDisable(GL11.GL_LIGHTING);
 		this.setLightmap(1.0f);
 		GlStateManager.translate(x, y, z);
-		GlStateManager.rotate(180.0F - rotate, 0.0F, 1.0F, 0.0F);
-		GlStateManager.enableRescaleNormal();
+		GlStateManager.disableRescaleNormal();
 		this.bindEntityTexture(entity);
 		
-		float scale = 0.0625F;
-		GlStateManager.scale(scale, scale, scale);
-		// do render
-		GlStateManager.disableRescaleNormal();
+		GlStateManager.scale(1, 1, 1);
+		int color = entity.getColor();
+		GlStateManager.color(((color >> 16) & 0xFF) / 255.0F, ((color >> 8) & 0xFF) / 255.0F, ((color >> 0) & 0xFF) / 255.0F, 1.0F);
+		// GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+		
+		this.renderGeo(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, entity.randTex / 16.0F, (entity.randTex + 1) / 16.0F, 0, 1);
+		
 		GL11.glEnable(GL11.GL_LIGHTING);
 		GlStateManager.popMatrix();
 		super.doRender(entity, x, y, z, rotate, partialTicks);
+	}
+	
+	public void renderGeo(double x0, double y0, double z0, double x1, double y1, double z1, double u0, double u1, double v0, double v1)
+	{
+		Tessellator tessellator = Tessellator.getInstance();
+		WorldRenderer worldrenderer = tessellator.getWorldRenderer();
+		worldrenderer.startDrawingQuads();
+		
+		// worldrenderer.setBrightness(1);
+		// worldrenderer.putNormal(0, 1, 0);
+		
+		worldrenderer.addVertexWithUV(x0, y0, z0, u0, v0);
+		worldrenderer.addVertexWithUV(x0, y1, z0, u0, v1);
+		worldrenderer.addVertexWithUV(x1, y1, z1, u1, v1);
+		worldrenderer.addVertexWithUV(x1, y0, z1, u1, v0);
+		
+		worldrenderer.addVertexWithUV(x0, y0, z1, u0, v0);
+		worldrenderer.addVertexWithUV(x0, y1, z1, u0, v1);
+		worldrenderer.addVertexWithUV(x1, y1, z0, u1, v1);
+		worldrenderer.addVertexWithUV(x1, y0, z0, u1, v0);
+		
+		worldrenderer.addVertexWithUV(x1, y0, z1, u1, v0);
+		worldrenderer.addVertexWithUV(x1, y1, z1, u1, v1);
+		worldrenderer.addVertexWithUV(x0, y1, z0, u0, v1);
+		worldrenderer.addVertexWithUV(x0, y0, z0, u0, v0);
+		
+		worldrenderer.addVertexWithUV(x1, y0, z0, u1, v0);
+		worldrenderer.addVertexWithUV(x1, y1, z0, u1, v1);
+		worldrenderer.addVertexWithUV(x0, y1, z1, u0, v1);
+		worldrenderer.addVertexWithUV(x0, y0, z1, u0, v0);
+		
+		tessellator.draw();
 	}
 	
 	public void setLightmap(float light)
@@ -47,6 +84,7 @@ public class RenderInternalLights extends Render
 	public void doRender(Entity entity, double x, double y, double z, float p_76986_8_, float partialTicks)
 	{
 		this.doRender((EntityLightsInternal) entity, x, y, z, p_76986_8_, partialTicks);
+		super.doRender(entity, x, y, z, p_76986_8_, partialTicks);
 	}
 	
 	/**
