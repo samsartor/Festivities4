@@ -16,6 +16,8 @@ public class RenderInternalLights extends Render
 {
 	public static final ResourceLocation lights = new ResourceLocation("festivities4:textures/entity/lights_plain.png");
 	
+	public static float[][][] twinkle = new float[8][3][2];
+	
 	public RenderInternalLights(RenderManager renderManager)
 	{
 		super(renderManager);
@@ -26,17 +28,30 @@ public class RenderInternalLights extends Render
 		this.bindEntityTexture(entity);
 		GlStateManager.pushMatrix();
 		GL11.glDisable(GL11.GL_LIGHTING);
-		this.setLightmap(1.0f);
 		GlStateManager.translate(x, y, z);
 		GlStateManager.disableRescaleNormal();
 		this.bindEntityTexture(entity);
 		
 		GlStateManager.scale(1, 1, 1);
-		int color = entity.getColor();
+		int color = entity.color;
 		GlStateManager.color(((color >> 16) & 0xFF) / 255.0F, ((color >> 8) & 0xFF) / 255.0F, ((color >> 0) & 0xFF) / 255.0F, 1.0F);
 		// GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 		
-		this.renderGeo(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, entity.randTex / 16.0F, (entity.randTex + 1) / 16.0F, 0, 1);
+		if (entity.twinkle)
+		{
+			int tex = entity.randTex;
+			for (int i = 0; i < 3; i++)
+			{
+				this.setLightmap(twinkle[entity.randTime][i][1] * partialTicks + twinkle[entity.randTime][i][0] * (1 - partialTicks));
+				this.renderGeo(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, tex++ / 16.0F, tex / 16.0F, 0, 1);
+				tex %= 16;
+			}
+		}
+		else
+		{
+			this.setLightmap(1.0f);
+			this.renderGeo(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, entity.randTex / 16.0F, (entity.randTex + 1) / 16.0F, 0, 1);
+		}
 		
 		GL11.glEnable(GL11.GL_LIGHTING);
 		GlStateManager.popMatrix();

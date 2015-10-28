@@ -4,6 +4,8 @@ import net.doctorocclusion.festivities4.block.FestiveBlocks;
 import net.doctorocclusion.festivities4.entity.FestiveEntities;
 import net.doctorocclusion.festivities4.item.FestiveItems;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -39,6 +41,9 @@ public class Festivities
 	public void init(FMLInitializationEvent event)
 	{
 		proxy.registerRenderers();
+		
+		MinecraftForge.EVENT_BUS.register(new FestivitiesEventHandler());
+		FMLCommonHandler.instance().bus().register(new FestivitiesFMLEventHandler());
 	}
 	
 	private void registerCrafting()

@@ -10,6 +10,6 @@ public class FestiveEntities
 	{
 		int id = 0;
 		
-		EntityRegistry.registerModEntity(EntityLightsInternal.class, "chrislights_internal", id++, Festivities.instance, 32, 10, true);
+		EntityRegistry.registerModEntity(EntityLightsInternal.class, "chrislights_internal", id++, Festivities.instance, 32, 120, false);
 	}
 }

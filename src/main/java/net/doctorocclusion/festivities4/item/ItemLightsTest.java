@@ -21,9 +21,10 @@ public class ItemLightsTest extends ItemFestive
 	{
 		if (!world.isRemote)
 		{
-			EntityLightsInternal ent = new EntityLightsInternal(world, pos);
+			Random r = new Random();
+			EnumBulbColor color = EnumBulbColor.values()[r.nextInt(EnumBulbColor.values().length)];
+			EntityLightsInternal ent = new EntityLightsInternal(world, pos, color, r.nextBoolean());
 			world.spawnEntityInWorld(ent);
-			ent.setColor(EnumBulbColor.values()[new Random().nextInt(EnumBulbColor.values().length)].color);
 		}
 		stack.stackSize--;
 		return true;
