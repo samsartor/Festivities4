@@ -23,7 +23,7 @@ public class EntityBlockLights extends Entity implements IEntityAdditionalSpawnD
 	public EntityBlockLights(World world)
 	{
 		super(world);
-		this.setSize(18 / 16.0F, 18 / 16.0F);
+		this.setSize(8 / 16.0F, 8 / 16.0F);
 		this.noClip = true;
 	}
 	
@@ -64,7 +64,7 @@ public class EntityBlockLights extends Entity implements IEntityAdditionalSpawnD
 		this.posX = x;
 		this.posY = y;
 		this.posZ = z;
-		float f = 9 / 16.0F;
+		float f = 4 / 16.0F;
 		this.setEntityBoundingBox(new AxisAlignedBB(x - f, y - f, z - f, x + f, y + f, z + f));
 	}
 	
@@ -86,7 +86,7 @@ public class EntityBlockLights extends Entity implements IEntityAdditionalSpawnD
 	@Override
 	public boolean canBeCollidedWith()
 	{
-		return false;
+		return true;
 	}
 	
 	public void onBroken(Entity entity)

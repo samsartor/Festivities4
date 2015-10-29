@@ -13,7 +13,15 @@ public class ItemFestive extends Item
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer playerIn, List tooltip, boolean advanced)
 	{
-		ClientProxy.addItemTip(stack, tooltip, advanced);
+		if (this.addFestiveTips())
+		{
+			ClientProxy.addItemTip(stack.getUnlocalizedName(), tooltip, advanced);
+		}
 		super.addInformation(stack, playerIn, tooltip, advanced);
+	}
+	
+	public boolean addFestiveTips()
+	{
+		return true;
 	}
 }

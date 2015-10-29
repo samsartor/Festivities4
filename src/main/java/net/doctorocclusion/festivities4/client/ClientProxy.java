@@ -87,9 +87,9 @@ public class ClientProxy extends CommonProxy
 		this.setItemModel(Item.getItemFromBlock(block), meta, loc);
 	}
 	
-	public static void addItemTip(ItemStack stack, List<String> tip, boolean advanced)
+	public static void addItemTip(String baseName, List<String> tip, boolean advanced)
 	{
-		String name = stack.getUnlocalizedName();
+		String name = baseName;
 		boolean shift = Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT);
 		boolean hasshift = StatCollector.canTranslate(name + ".shifttip");
 		if (StatCollector.canTranslate(name + ".subname"))

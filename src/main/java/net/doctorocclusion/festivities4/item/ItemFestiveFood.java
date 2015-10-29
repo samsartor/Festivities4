@@ -18,7 +18,7 @@ public class ItemFestiveFood extends ItemFood
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer playerIn, List tooltip, boolean advanced)
 	{
-		ClientProxy.addItemTip(stack, tooltip, advanced);
+		ClientProxy.addItemTip(stack.getUnlocalizedName(), tooltip, advanced);
 		super.addInformation(stack, playerIn, tooltip, advanced);
 	}
 }
