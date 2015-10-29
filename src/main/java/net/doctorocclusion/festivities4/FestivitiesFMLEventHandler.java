@@ -1,6 +1,6 @@
 package net.doctorocclusion.festivities4;
 
-import net.doctorocclusion.festivities4.client.renderer.entity.RenderInternalLights;
+import net.doctorocclusion.festivities4.client.renderer.entity.RenderBlockLights;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
@@ -21,8 +21,8 @@ public class FestivitiesFMLEventHandler
 			{
 				for (int j = 0; j < 3; j++)
 				{
-					RenderInternalLights.twinkle[i][j][0] = (float) Math.sin((angle0 + (i / 8.0) + (j / 3.0)) * tau) * 0.5F + 0.5F;
-					RenderInternalLights.twinkle[i][j][1] = (float) Math.sin((angle1 + (i / 8.0) + (j / 3.0)) * tau) * 0.5F + 0.5F;
+					RenderBlockLights.twinkle[i][j][0] = (float) Math.sin((angle0 + (i / 8.0) + (j / 3.0)) * tau) * 0.5F + 0.5F;
+					RenderBlockLights.twinkle[i][j][1] = (float) Math.sin((angle1 + (i / 8.0) + (j / 3.0)) * tau) * 0.5F + 0.5F;
 				}
 			}
 			

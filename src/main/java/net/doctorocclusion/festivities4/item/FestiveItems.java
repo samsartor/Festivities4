@@ -9,7 +9,7 @@ public class FestiveItems
 	public static Item peppermintStick = new ItemFestiveFood(3, 0.3F);
 	public static Item snowmanParts = new ItemSnowmanParts();
 	
-	public static Item lightsTest = new ItemLightsTest();
+	public static Item blockLights = new ItemBlockLights();
 	
 	public static void registerItems()
 	{
@@ -19,10 +19,10 @@ public class FestiveItems
 		peppermintStick.setUnlocalizedName("peppermintStick");
 		GameRegistry.registerItem(peppermintStick, "peppermint_stick");
 		
-		lightsTest.setUnlocalizedName("snowmanParts");
+		blockLights.setUnlocalizedName("snowmanParts");
 		GameRegistry.registerItem(snowmanParts, "snowman_parts");
 		
-		lightsTest.setUnlocalizedName("lightsTest");
-		GameRegistry.registerItem(lightsTest, "lights_test");
+		blockLights.setUnlocalizedName("blockLights");
+		GameRegistry.registerItem(blockLights, "block_lights");
 	}
 }

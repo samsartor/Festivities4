@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class EntityLightsInternal extends Entity implements IEntityAdditionalSpawnData
+public class EntityBlockLights extends Entity implements IEntityAdditionalSpawnData
 {
 	public BlockPos hangingPosition;
 	public int randTex;
@@ -20,14 +20,14 @@ public class EntityLightsInternal extends Entity implements IEntityAdditionalSpa
 	public int color;
 	public boolean twinkle;
 	
-	public EntityLightsInternal(World world)
+	public EntityBlockLights(World world)
 	{
 		super(world);
 		this.setSize(18 / 16.0F, 18 / 16.0F);
 		this.noClip = true;
 	}
 	
-	public EntityLightsInternal(World world, BlockPos pos, int color, boolean twinkle)
+	public EntityBlockLights(World world, BlockPos pos, int color, boolean twinkle)
 	{
 		this(world);
 		this.hangingPosition = pos;
@@ -37,7 +37,7 @@ public class EntityLightsInternal extends Entity implements IEntityAdditionalSpa
 		this.twinkle = twinkle;
 	}
 	
-	public EntityLightsInternal(World world, BlockPos pos, EnumBulbColor color, boolean twinkle)
+	public EntityBlockLights(World world, BlockPos pos, EnumBulbColor color, boolean twinkle)
 	{
 		this(world, pos, color.color, twinkle);
 	}

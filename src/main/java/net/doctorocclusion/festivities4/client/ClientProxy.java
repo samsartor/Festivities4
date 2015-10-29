@@ -8,13 +8,15 @@ import org.lwjgl.input.Keyboard;
 import net.doctorocclusion.festivities4.CommonProxy;
 import net.doctorocclusion.festivities4.Festivities;
 import net.doctorocclusion.festivities4.block.FestiveBlocks;
-import net.doctorocclusion.festivities4.client.renderer.entity.RenderInternalLights;
-import net.doctorocclusion.festivities4.entity.lights.EntityLightsInternal;
+import net.doctorocclusion.festivities4.client.renderer.entity.RenderBlockLights;
+import net.doctorocclusion.festivities4.entity.lights.EntityBlockLights;
 import net.doctorocclusion.festivities4.item.FestiveItems;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -36,7 +38,24 @@ public class ClientProxy extends CommonProxy
 		this.setItemModel(FestiveItems.peppermintStick, 0, Festivities.ID + ":peppermint_stick");
 		this.setItemModel(FestiveItems.snowmanParts, 0, Festivities.ID + ":snowman_parts");
 		
-		RenderingRegistry.registerEntityRenderingHandler(EntityLightsInternal.class, new RenderInternalLights(rm));
+		this.setItemModel(FestiveItems.blockLights, new ItemMeshDefinition()
+		{
+			@Override
+			public ModelResourceLocation getModelLocation(ItemStack stack)
+			{
+				if ((stack.getMetadata() & 0x100) > 0)
+				{
+					return new ModelResourceLocation(Festivities.ID + ":block_lights_sparkle", "inventory");
+				}
+				else
+				{
+					return new ModelResourceLocation(Festivities.ID + ":block_lights_plain", "inventory");
+				}
+			}
+		});
+		ModelBakery.addVariantName(FestiveItems.blockLights, Festivities.ID + ":block_lights_plain", Festivities.ID + ":block_lights_sparkle");
+		
+		RenderingRegistry.registerEntityRenderingHandler(EntityBlockLights.class, new RenderBlockLights(rm));
 	}
 	
 	public void setItemModel(Item item, int meta, ModelResourceLocation loc)
@@ -44,6 +63,13 @@ public class ClientProxy extends CommonProxy
 		// ModelLoader.setCustomModelResourceLocation(item, meta, loc);
 		RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
 		renderItem.getItemModelMesher().register(item, meta, loc);
+	}
+	
+	public void setItemModel(Item item, ItemMeshDefinition def)
+	{
+		// ModelLoader.setCustomModelResourceLocation(item, meta, loc);
+		RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
+		renderItem.getItemModelMesher().register(item, def);
 	}
 	
 	public void setItemModel(Item item, int meta, String loc)

@@ -2,7 +2,7 @@ package net.doctorocclusion.festivities4.client.renderer.entity;
 
 import org.lwjgl.opengl.GL11;
 
-import net.doctorocclusion.festivities4.entity.lights.EntityLightsInternal;
+import net.doctorocclusion.festivities4.entity.lights.EntityBlockLights;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
@@ -12,18 +12,18 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderInternalLights extends Render
+public class RenderBlockLights extends Render
 {
 	public static final ResourceLocation lights = new ResourceLocation("festivities4:textures/entity/lights_plain.png");
 	
 	public static float[][][] twinkle = new float[8][3][2];
 	
-	public RenderInternalLights(RenderManager renderManager)
+	public RenderBlockLights(RenderManager renderManager)
 	{
 		super(renderManager);
 	}
 	
-	public void doRender(EntityLightsInternal entity, double x, double y, double z, float rotate, float partialTicks)
+	public void doRender(EntityBlockLights entity, double x, double y, double z, float rotate, float partialTicks)
 	{
 		this.bindEntityTexture(entity);
 		GlStateManager.pushMatrix();
@@ -98,7 +98,7 @@ public class RenderInternalLights extends Render
 	@Override
 	public void doRender(Entity entity, double x, double y, double z, float p_76986_8_, float partialTicks)
 	{
-		this.doRender((EntityLightsInternal) entity, x, y, z, p_76986_8_, partialTicks);
+		this.doRender((EntityBlockLights) entity, x, y, z, p_76986_8_, partialTicks);
 		super.doRender(entity, x, y, z, p_76986_8_, partialTicks);
 	}
 	
