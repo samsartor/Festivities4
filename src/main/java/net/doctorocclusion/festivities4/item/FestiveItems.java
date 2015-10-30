@@ -19,7 +19,7 @@ public class FestiveItems
 		peppermintStick.setUnlocalizedName("peppermintStick");
 		GameRegistry.registerItem(peppermintStick, "peppermint_stick");
 		
-		blockLights.setUnlocalizedName("snowmanParts");
+		snowmanParts.setUnlocalizedName("snowmanParts");
 		GameRegistry.registerItem(snowmanParts, "snowman_parts");
 		
 		blockLights.setUnlocalizedName("blockLights");

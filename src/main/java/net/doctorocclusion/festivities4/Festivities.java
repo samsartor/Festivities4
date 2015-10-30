@@ -3,6 +3,7 @@ package net.doctorocclusion.festivities4;
 import net.doctorocclusion.festivities4.block.FestiveBlocks;
 import net.doctorocclusion.festivities4.entity.FestiveEntities;
 import net.doctorocclusion.festivities4.item.FestiveItems;
+import net.doctorocclusion.festivities4.network.MessageLightsColor;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -12,7 +13,10 @@ import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
 
 @Mod(modid = Festivities.ID, version = Festivities.VERSION)
 public class Festivities
@@ -23,6 +27,8 @@ public class Festivities
 	@Instance("Festivities")
 	public static Festivities instance;
 	
+	public static SimpleNetworkWrapper network;
+	
 	@SidedProxy(modId = Festivities.ID, clientSide = "net.doctorocclusion.festivities4.client.ClientProxy", serverSide = "net.doctorocclusion.festivities4.CommonProxy")
 	public static CommonProxy proxy;
 	
@@ -30,6 +36,9 @@ public class Festivities
 	public void preinit(FMLPreInitializationEvent event)
 	{
 		instance = this;
+		
+		network = NetworkRegistry.INSTANCE.newSimpleChannel("MyChannel");
+		network.registerMessage(MessageLightsColor.Handler.class, MessageLightsColor.class, 0, Side.SERVER);
 		
 		FestiveItems.registerItems();
 		FestiveBlocks.registerBlocks();

@@ -2,6 +2,7 @@ package net.doctorocclusion.festivities4.item;
 
 import java.util.List;
 
+import net.doctorocclusion.festivities4.FestiveTabs;
 import net.doctorocclusion.festivities4.client.ClientProxy;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
@@ -12,6 +13,7 @@ public class ItemFestiveFood extends ItemFood
 	public ItemFestiveFood(int amount, float saturation)
 	{
 		super(amount, saturation, false);
+		this.setCreativeTab(FestiveTabs.food);
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })

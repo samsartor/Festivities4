@@ -11,13 +11,13 @@ item.peppermintStick.name=Peppermint Stick
 item.peppermintStick.tip=No so good for tools
 item.peppermintStick.shifttip=but it is delicious
 item.snowmanParts.name=Snowman Parts
-item.snowmanParts.tip=You wanna build a...
-item.snowmanParts.shifttip=Use on some snow blocks.
+item.snowmanParts.tip=You wanna build a Snowman?
+item.snowmanParts.shifttip=Of course you do|Use on some snow blocks
 
 item.blockLights.sparkle.name=Sparkling Block Lights
 item.blockLights.plain.name=Block Lights
-item.blockLights.sparkle.shifttip=Left click block with item to remove
-item.blockLights.plain.shifttip=Left click block with item to remove
+item.blockLights.sparkle.shifttip=Shift+Scroll to change color|To remove from block, left click with item
+item.blockLights.plain.shifttip=Shift+Scroll to change color|To remove from block, left click with item
 
 color.warm.name=Warm White
 color.cool.name=Cool White
@@ -36,3 +36,8 @@ color.light_aqua.name=Light Aqua
 color.light_red.name=Light Red
 color.light_purple.name=Light Purple
 color.yellow.name=Yellow
+
+itemGroup.festiveLights=Festive Lights
+itemGroup.festiveFoods=Festive Foods
+itemGroup.festiveBlocks=Festive Blocks
+itemGroup.festiveMisc=Festive Misc

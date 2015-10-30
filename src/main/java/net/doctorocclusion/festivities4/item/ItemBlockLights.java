@@ -2,6 +2,7 @@ package net.doctorocclusion.festivities4.item;
 
 import java.util.List;
 
+import net.doctorocclusion.festivities4.FestiveTabs;
 import net.doctorocclusion.festivities4.client.ClientProxy;
 import net.doctorocclusion.festivities4.entity.lights.EntityBlockLights;
 import net.doctorocclusion.festivities4.entity.lights.EnumBulbColor;
@@ -23,13 +24,22 @@ public class ItemBlockLights extends ItemFestive
 		this.maxStackSize = 1;
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
-		this.setCreativeTab(CreativeTabs.tabDecorations);
+		this.setCreativeTab(FestiveTabs.lights);
 		this.setMaxStackSize(64);
 	}
 	
 	public static boolean isSparkle(ItemStack stack)
 	{
 		return isSparkle(stack.getMetadata());
+	}
+	
+	public static ItemStack setSparkle(ItemStack stack, boolean sparkle)
+	{
+		int meta = stack.getMetadata();
+		meta &= ~0x100;
+		meta |= (sparkle ? 0x100 : 0x0);
+		stack.setItemDamage(meta);
+		return stack;
 	}
 	
 	public static boolean isSparkle(int meta)
@@ -40,6 +50,15 @@ public class ItemBlockLights extends ItemFestive
 	public static EnumBulbColor getColor(ItemStack stack)
 	{
 		return getColor(stack.getMetadata());
+	}
+	
+	public static ItemStack setColor(ItemStack stack, EnumBulbColor color)
+	{
+		int meta = stack.getMetadata();
+		meta &= ~0xFF;
+		meta |= color.ordinal();
+		stack.setItemDamage(meta);
+		return stack;
 	}
 	
 	public static EnumBulbColor getColor(int meta)
@@ -82,14 +101,15 @@ public class ItemBlockLights extends ItemFestive
 	@Override
 	public String getItemStackDisplayName(ItemStack stack)
 	{
-		return StatCollector.translateToLocal(this.getUnlocalizedBaseName(stack) + ".name").trim();
+		String color = StatCollector.translateToLocal("color." + getColor(stack).name + ".name").trim();
+		String name = StatCollector.translateToLocal(this.getUnlocalizedBaseName(stack) + ".name").trim();
+		return String.format("%s (%s)", name, color);
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer playerIn, List tooltip, boolean advanced)
 	{
-		tooltip.add(StatCollector.translateToLocal("color." + getColor(stack).name + ".name"));
 		ClientProxy.addItemTip(this.getUnlocalizedBaseName(stack), tooltip, advanced);
 		super.addInformation(stack, playerIn, tooltip, advanced);
 	}
