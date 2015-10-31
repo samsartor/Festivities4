@@ -1,8 +1,11 @@
 package net.doctorocclusion.festivities4.entity.lights;
 
 import io.netty.buffer.ByteBuf;
+import net.doctorocclusion.festivities4.item.FestiveItems;
+import net.doctorocclusion.festivities4.item.ItemBlockLights;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
@@ -91,7 +94,58 @@ public class EntityBlockLights extends Entity implements IEntityAdditionalSpawnD
 	
 	public void onBroken(Entity entity)
 	{
-	
+		if (!this.worldObj.isRemote)
+		{
+			boolean drop = true;
+			boolean direct = false;
+			int colorid = -1;
+			if (entity instanceof EntityPlayer)
+			{
+				EntityPlayer player = (EntityPlayer) entity;
+				if (player.capabilities.isCreativeMode)
+				{
+					drop = false;
+				}
+				else
+				{
+					ItemStack held = player.getCurrentEquippedItem();
+					if (held.getItem() == FestiveItems.blockLights)
+					{
+						direct = true;
+						if (ItemBlockLights.isSparkle(held) == this.twinkle)
+						{
+							colorid = ItemBlockLights.getColor(held).ordinal();
+						}
+					}
+				}
+			}
+			if (colorid == -1)
+			{
+				EnumBulbColor[] colors = EnumBulbColor.values();
+				for (int i = 0; i < colors.length; i++)
+				{
+					if (colors[i].color == this.color)
+					{
+						colorid = i;
+						break;
+					}
+				}
+				colorid = EnumBulbColor.WHITE.ordinal();
+			}
+			if (colorid != -1 && drop)
+			{
+				ItemStack stack = new ItemStack(FestiveItems.blockLights, 1, colorid);
+				stack = ItemBlockLights.setSparkle(stack, this.twinkle);
+				if (direct)
+				{
+					((EntityPlayer) entity).inventory.addItemStackToInventory(stack);
+				}
+				else
+				{
+					this.entityDropItem(stack, 0);
+				}
+			}
+		}
 	}
 	
 	/**
