@@ -32,6 +32,7 @@ public class FestivitiesEventHandler
 					EntityBlockLights ent = (EntityBlockLights) ents.get(0);
 					ent.onBroken(event.entityPlayer);
 					ent.setDead();
+					event.setCanceled(true);
 				}
 			}
 		}

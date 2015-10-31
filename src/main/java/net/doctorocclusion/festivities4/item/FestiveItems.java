@@ -8,8 +8,9 @@ public class FestiveItems
 	public static Item candyCane = new ItemFestiveFood(3, 0.3F);
 	public static Item peppermintStick = new ItemFestiveFood(3, 0.3F);
 	public static Item snowmanParts = new ItemSnowmanParts();
-	
 	public static Item blockLights = new ItemBlockLights();
+	public static Item chocolateMilk = new ItemDrink();
+	public static Item hotChocolate = new ItemDrink();
 	
 	public static void registerItems()
 	{
@@ -24,5 +25,11 @@ public class FestiveItems
 		
 		blockLights.setUnlocalizedName("blockLights");
 		GameRegistry.registerItem(blockLights, "block_lights");
+		
+		chocolateMilk.setUnlocalizedName("chocolateMilk");
+		GameRegistry.registerItem(chocolateMilk, "chocolate_milk");
+		
+		hotChocolate.setUnlocalizedName("hotChocolate");
+		GameRegistry.registerItem(hotChocolate, "hot_chocolate");
 	}
 }
