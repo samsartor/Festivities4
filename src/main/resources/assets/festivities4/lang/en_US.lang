@@ -15,6 +15,8 @@ item.snowmanParts.tip=You wanna build a Snowman?
 item.snowmanParts.shifttip=Of course you do|Use on some snow blocks
 item.chocolateMilk.name=Chocolate Milk
 item.hotChocolate.name=Hot Chocolate
+item.warmBulbs.name=Warm Bulbs
+item.coolBulbs.name=Cool Bulbs
 
 item.blockLights.sparkle.name=Sparkling Block Lights
 item.blockLights.plain.name=Block Lights

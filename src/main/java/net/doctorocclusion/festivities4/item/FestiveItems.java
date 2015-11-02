@@ -1,5 +1,6 @@
 package net.doctorocclusion.festivities4.item;
 
+import net.doctorocclusion.festivities4.FestiveTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -11,6 +12,8 @@ public class FestiveItems
 	public static Item blockLights = new ItemBlockLights();
 	public static Item chocolateMilk = new ItemDrink();
 	public static Item hotChocolate = new ItemDrink();
+	public static Item warmBulbs = new ItemFestive();
+	public static Item coolBulbs = new ItemFestive();
 	
 	public static void registerItems()
 	{
@@ -31,5 +34,13 @@ public class FestiveItems
 		
 		hotChocolate.setUnlocalizedName("hotChocolate");
 		GameRegistry.registerItem(hotChocolate, "hot_chocolate");
+		
+		warmBulbs.setUnlocalizedName("warmBulbs");
+		warmBulbs.setCreativeTab(FestiveTabs.lights);
+		GameRegistry.registerItem(warmBulbs, "warm_bulbs");
+		
+		coolBulbs.setUnlocalizedName("coolBulbs");
+		coolBulbs.setCreativeTab(FestiveTabs.lights);
+		GameRegistry.registerItem(coolBulbs, "cool_bulbs");
 	}
 }

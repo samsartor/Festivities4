@@ -94,6 +94,7 @@ public class EntityBlockLights extends Entity implements IEntityAdditionalSpawnD
 	
 	public void onBroken(Entity entity)
 	{
+		System.out.println("broken! " + !entity.worldObj.isRemote);
 		if (!this.worldObj.isRemote)
 		{
 			boolean drop = true;
@@ -109,7 +110,7 @@ public class EntityBlockLights extends Entity implements IEntityAdditionalSpawnD
 				else
 				{
 					ItemStack held = player.getCurrentEquippedItem();
-					if (held.getItem() == FestiveItems.blockLights)
+					if (held != null && held.getItem() == FestiveItems.blockLights)
 					{
 						direct = true;
 						if (ItemBlockLights.isSparkle(held) == this.twinkle)
@@ -130,9 +131,12 @@ public class EntityBlockLights extends Entity implements IEntityAdditionalSpawnD
 						break;
 					}
 				}
-				colorid = EnumBulbColor.WHITE.ordinal();
+				if (colorid == -1)
+				{
+					colorid = EnumBulbColor.WHITE.ordinal();
+				}
 			}
-			if (colorid != -1 && drop)
+			if (drop)
 			{
 				ItemStack stack = new ItemStack(FestiveItems.blockLights, 1, colorid);
 				stack = ItemBlockLights.setSparkle(stack, this.twinkle);

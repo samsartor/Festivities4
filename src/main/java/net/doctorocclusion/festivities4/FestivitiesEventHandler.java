@@ -22,6 +22,7 @@ public class FestivitiesEventHandler
 	{
 		if (event.action == Action.LEFT_CLICK_BLOCK)
 		{
+			System.out.println("l-click block!");
 			ItemStack stack = event.entityPlayer.getCurrentEquippedItem();
 			if (stack != null && stack.getItem() == FestiveItems.blockLights)
 			{
